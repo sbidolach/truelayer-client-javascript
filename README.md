@@ -8,7 +8,7 @@
 </p>
 
 # [TrueLayer](https://truelayer.com) - [Docs](https://docs.truelayer.com)
-TrueLayer allows financial applications to connect securely with their customer’s bank data. TrueLayer provides a unified interface between multiple financial institutions and third party applications over a common RESTful API. 
+TrueLayer allows financial applications to connect securely with their customer’s bank data. TrueLayer provides a unified interface between multiple financial institutions and third party applications over a common RESTful API.
 For more information and for obtaining a new TrueLayer developer account, visit https://truelayer.com.
 
 <br>
@@ -24,7 +24,7 @@ The client library can be used within a JavaScript (Node.js) or TypeScript envir
 # Installation
 
 ```bash
-$ npm install truelayer-client
+$ npm install truelayer-client-es5
 ```
 
 <br>
@@ -35,7 +35,7 @@ Below is a simple Javascript express app using TrueLayer's API client library. I
 > Note: You'll need **node** (*at least > v7.6*) and **npm** or **yarn** to install and run this example.
 
 ```javascript
-const {AuthAPIClient, DataAPIClient} = require("truelayer-client");
+const {AuthAPIClient, DataAPIClient} = require("truelayer-client-es5");
 const app = require("express")();
 
 const redirect_uri = "http://localhost:5000/truelayer-redirect";
@@ -75,7 +75,7 @@ $ npm init
 
 **Install dependencies**
 ```bash
-$ npm install --save truelayer-client express
+$ npm install --save truelayer-client-es5 express
 ```
 
 **Run the app** :video_game:
@@ -107,7 +107,7 @@ The flow of authorization follows the protocol of [OAuth 2.0](https://oauth.net/
 
 > **Note:** The `responseMode` parameter if omitted will cause the auth server to return the one-time code as a **query-string** parameter. Passing `"form_post"` will intuitively cause the code to be returned as a **form/post** parameter.
 
-1. The first step in authentication is to redirect the user to the TrueLayer Authentication Server. 
+1. The first step in authentication is to redirect the user to the TrueLayer Authentication Server.
 
     ```javascript
     const authURL = client.getAuthUrl(env.REDIRECT_URI, scope, "nonce", "form_post");
@@ -127,7 +127,7 @@ The flow of authorization follows the protocol of [OAuth 2.0](https://oauth.net/
 
     ```javascript
     const tokens = await client.exchangeCodeForToken(env.REDIRECT_URI, code);
-    ``` 
+    ```
 4. The authorization server will respond with:
     * *access token* - short-lived JWT token (default 1h) used to access data on behalf of the customer
     * *refresh token* - long-lived code used to obtain a new access token
@@ -145,7 +145,7 @@ This client library consists of two core pieces of functionality, each represent
 * The following methods are provided in AuthAPIClient:
     * `getAuthUrl` - builds a correctly formatted authentication url used for redirection to the authentication server.
     * `exchangeCodeForToken` - exchanges an authentication code for an access token
-    * `refreshAccessToken` - refreshes the access token using the refresh token. Access tokens expire after a set period of time (default 1h). 
+    * `refreshAccessToken` - refreshes the access token using the refresh token. Access tokens expire after a set period of time (default 1h).
 
 #### 2. Data APIs - [DataAPIClient](https://github.com/TrueLayer/truelayer-client-javascript/tree/master/src/v1#DataAPIClient)
 * Once the authentication is successful, methods are provided for calling the various API endpoints for obtaining information regarding the authenticated bank account such as : accounts, balance, transactions etc.
@@ -199,7 +199,7 @@ $ npm run test
 <br>
 
 # Contributions
-In order to contribute to the existing code base, please follow these steps: 
+In order to contribute to the existing code base, please follow these steps:
 * Fork the repo
 * Create a new branch (```git checkout -b <improvements-branch>```)
 * Make the appropriate changes
