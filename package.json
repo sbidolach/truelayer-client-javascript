@@ -1,10 +1,10 @@
 {
-    "name": "truelayer-client",
+    "name": "truelayer-client-es5",
     "version": "1.0.9",
-    "description": "The official TrueLayer API client library",
+    "description": "The official TrueLayer API client library compiled in es5",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "repository": "https://github.com/TrueLayer/truelayer-client-javascript.git",
+    "repository": "https://github.com/sbidolach/truelayer-client-javascript.git",
     "author": "Jarvis Prestidge <jarvis@truelayer.com> & Raluca Lehadus <raluca@truelayer.com>",
     "license": "MIT",
     "devDependencies": {
